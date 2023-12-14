@@ -1,13 +1,24 @@
 #ifndef EXAMPLE_H
 #define EXAMPLE_H
 
+#include <memory>
+
 namespace example
 {
 
-    bool toggle(bool value)
+    class TogglerImpl;
+
+    class Toggler
     {
-        return !value;
-    }
+    public:
+        Toggler(bool initialValue);
+        ~Toggler();
+
+        bool toggle();
+
+    private:
+        std::unique_ptr<TogglerImpl> m_impl;
+    };
     
 }
 

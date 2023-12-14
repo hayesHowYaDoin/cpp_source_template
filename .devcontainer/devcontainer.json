@@ -1,5 +1,5 @@
 {
-    "name": "header_template",
+    "name": "cpp_source_template",
 
     "build": {
         "dockerfile": "Dockerfile"
