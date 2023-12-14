@@ -1,12 +1,18 @@
+
+#include "example/example.hpp"
+
 #include <gtest/gtest.h>
-#include <example/example.hpp>
 
 TEST(ToggleTest, ToggleTrueToFalse)
 {
-    EXPECT_FALSE(false);
+    example::Toggler toggler { true };
+
+    EXPECT_FALSE(toggler.toggle());
 }
 
 TEST(ToggleTest, ToggleFalseToTrue)
 {
-    EXPECT_TRUE(true);
+    example::Toggler toggler { false };
+
+    EXPECT_TRUE(toggler.toggle());
 }
