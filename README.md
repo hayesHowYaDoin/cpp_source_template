@@ -18,7 +18,7 @@ in a Dev Container.
 
 1) Clone the repository onto the host computer with the following command:
    ```
-    git clone https://github.com/hayesHowYaDoin/header_template.git
+    git clone https://github.com/hayesHowYaDoin/cpp_source_template.git
    ```
 2) Open the folder in VSCode. In the Command Palette (Ctrl+Shift+P), execute 
 the command "Dev Containers: Open Folder In Container..."
