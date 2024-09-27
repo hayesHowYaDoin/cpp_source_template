@@ -68,5 +68,12 @@
         "streambuf": "cpp",
         "thread": "cpp",
         "typeinfo": "cpp"
-    }
+    },
+    "editor.formatOnSave": true,
+    "C_Cpp.clang_format_style": "file",
+    "editor.defaultFormatter": "SonarSource.sonarlint-vscode",
+    "sonarlint.pathToCompileCommands": "${workspaceFolder}/build/compile_commands.json",
+    "[cpp]": {
+        "editor.defaultFormatter": "xaver.clang-format"
+    },
 }

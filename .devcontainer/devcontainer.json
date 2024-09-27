@@ -10,12 +10,14 @@
             "settings": {},
 
             "extensions": [
+                "cs128.cs128-clang-tidy",
                 "ms-azuretools.vscode-docker",
                 "ms-vscode.cpptools",
                 "ms-vscode.cmake-tools",
                 "ms-vscode.cpptools-extension-pack",
                 "piotrkosek.vscode-gtest-test-adapter-with-code-lens",
                 "sonarsource.sonarlint-vscode",
+                "xaver.clang-format",
                 "yzhang.markdown-all-in-one"
             ]
         }
