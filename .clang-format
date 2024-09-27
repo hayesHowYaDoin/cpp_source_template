@@ -7,5 +7,5 @@ QualifierAlignment: Right
 DerivePointerAlignment: false
 PointerAlignment: Left
 SpaceBeforeParens: false
-
+FixNamespaceComments: true
 ...
