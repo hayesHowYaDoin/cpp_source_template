@@ -2,7 +2,8 @@
 
 #include "example/example.h"
 
-TEST(ExampleTest, TogglerTest) {
+TEST(ExampleTest, TogglerTest)
+{
     example::Toggler toggler(false);
 
     EXPECT_TRUE(toggler.toggle());

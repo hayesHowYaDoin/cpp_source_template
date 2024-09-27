@@ -3,11 +3,12 @@
 
 #include <memory>
 
-namespace example {
-
+namespace example
+{
 class TogglerImpl;
 
-class Toggler {
+class Toggler
+{
   public:
     explicit Toggler(bool initialValue);
 

@@ -1,10 +1,12 @@
 #ifndef EXAMPLE_P_H
 #define EXAMPLE_P_H
 
-namespace example {
+namespace example
+{
 
-struct TogglerImpl {
-    explicit TogglerImpl(bool value) : value(value) {}
+struct TogglerImpl
+{
+    explicit TogglerImpl (bool value) : value (value) {}
     bool value;
 };
 
