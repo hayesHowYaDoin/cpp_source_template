@@ -1,4 +1,9 @@
 ---
-BasedOnStyle: LLVM
-IndentWidth: 4
-ColumnLimit: 80
+BasedOnStyle: GNU
+ColumnLimit: '80'
+IndentWidth: '4'
+UseTab: Never
+QualifierAlignment: Right
+SpaceBeforeParens: false
+
+...
