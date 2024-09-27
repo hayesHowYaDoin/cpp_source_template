@@ -4,6 +4,8 @@ ColumnLimit: '80'
 IndentWidth: '4'
 UseTab: Never
 QualifierAlignment: Right
+DerivePointerAlignment: false
+PointerAlignment: Left
 SpaceBeforeParens: false
 
 ...
