@@ -1,5 +1,5 @@
 # Use Ubuntu as the base image
-FROM ubuntu:20.04
+FROM gcc:14
 LABEL maintainer="Jordan Hayes jordanhayes98@gmail.com"
 
 # Configure timezone
@@ -16,29 +16,28 @@ RUN apt-get update && \
         nano \
         openssh-server \
         pkg-config \
+        software-properties-common \
         systemd-coredump \
         valgrind && \
-    apt-get clean
-
-# GCC 13
-RUN echo "************************ GCC 13 ************************" && \
-    apt-get update && \    
-    apt-get install -y software-properties-common && \
-    add-apt-repository -y ppa:ubuntu-toolchain-r/test && \
-    apt-get update && \
-    apt-get install -y gcc-13 g++-13 && \
     apt-get clean
 
 # Clang-Format
 RUN echo "********************* Clang-Format *********************" && \
     apt-get update && \
-    apt-get install -y clang-format && \
+    apt-get install -y wget gnupg && \
+    wget https://apt.llvm.org/llvm-snapshot.gpg.key && \
+    apt-key add llvm-snapshot.gpg.key && \
+    add-apt-repository "deb http://apt.llvm.org/focal/ llvm-toolchain-focal-15 main" && \
+    apt-get update && \
+    apt-get install -y clang-format-15 && \
+    update-alternatives --install /usr/bin/clang-format clang-format /usr/bin/clang-format-15 100 && \
+    rm llvm-snapshot.gpg.key && \
     apt-get clean
 
 # NodeJs (SonarLint)
 RUN echo "************************ NodeJs ************************" && \
     apt-get update && \
-    curl -fsSL https://deb.nodesource.com/setup_16.x | bash - && \
+    curl -fsSL https://deb.nodesource.com/setup_19.x | bash - && \
     apt-get install -y nodejs && \
     apt-get clean
 
@@ -89,5 +88,5 @@ RUN cmake -DCMAKE_CXX_FLAGS=-std=c++1z \
 WORKDIR "/"
 RUN rm -rf googletest
 
-# Uninstall standard version of GCC
-RUN apt-get remove -y gcc-9 g++-9
+# Uninstall alternate versions of GCC
+RUN apt-get remove -y gcc-12 g++-12
