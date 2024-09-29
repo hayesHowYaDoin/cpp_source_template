@@ -13,12 +13,12 @@ Toggler::Toggler(bool initialValue)
     // Intentionally blank
 }
 
+Toggler::~Toggler() = default;
+
 bool
 Toggler::toggle()
 {
-    m_impl->value = !m_impl->value;
-
-    return m_impl->value;
+    return m_impl->toggle();
 }
 
 } // namespace example

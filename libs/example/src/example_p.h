@@ -1,15 +1,25 @@
-#ifndef EXAMPLE_P_H
-#define EXAMPLE_P_H
+#ifndef EXAMPLE_TOGGLER_IMPL_H
+#define EXAMPLE_TOGGLER_IMPL_H
 
 namespace example
 {
 
-struct TogglerImpl
+class TogglerImpl
 {
-    explicit TogglerImpl (bool value) : value (value) {}
-    bool value;
+  public:
+    explicit TogglerImpl(bool initialValue) : m_state{ initialValue } {}
+
+    bool
+    toggle()
+    {
+        m_state = !m_state;
+        return m_state;
+    }
+
+  private:
+    bool m_state;
 };
 
 } // namespace example
 
-#endif // EXAMPLE_P_H
+#endif // EXAMPLE_TOGGLER_IMPL_H

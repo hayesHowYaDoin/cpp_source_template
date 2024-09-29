@@ -5,12 +5,15 @@
 
 namespace example
 {
+
 class TogglerImpl;
 
 class Toggler
 {
   public:
     explicit Toggler(bool initialValue);
+
+    ~Toggler();
 
     bool toggle();
 
