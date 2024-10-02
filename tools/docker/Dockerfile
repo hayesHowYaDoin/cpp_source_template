@@ -61,32 +61,14 @@ RUN apt-get update && \
     rm ninja-linux.zip && \
     apt-get clean
 
-# Google Benchmark
-RUN echo "****************** Google Benchmark *******************"
-RUN git clone https://github.com/google/benchmark
-RUN mkdir -p  /benchmark/build
-WORKDIR "/benchmark/build"
-RUN cmake -DCMAKE_CXX_FLAGS=-std=c++1z \
-          -DBENCHMARK_DOWNLOAD_DEPENDENCIES=TRUE \
-          -DCMAKE_BUILD_TYPE=Release \
-          -DBUILD_SHARED_LIBS=ON ../ && \
-    cmake --build . --parallel && \
-    cmake --install .
-WORKDIR "/"
-RUN rm -rf benchmark
-
 # Google Test
 RUN echo "********************* Google Test *********************"
-RUN git clone https://github.com/google/googletest
-RUN mkdir -p /googletest/build
-WORKDIR "/googletest/build"
-RUN cmake -DCMAKE_CXX_FLAGS=-std=c++1z \
-          -DCMAKE_BUILD_TYPE=Release \
-          -DBUILD_SHARED_LIBS=ON ../ && \
-    cmake --build . --parallel && \
-    cmake --install .
-WORKDIR "/"
-RUN rm -rf googletest
+RUN git clone https://github.com/google/googletest.git
+RUN mkdir -p googletest/build && \
+    cd googletest/build && \
+    cmake .. && \
+    make && \
+    make install
 
 # Uninstall alternate versions of GCC
 RUN apt-get remove -y gcc-12 g++-12
