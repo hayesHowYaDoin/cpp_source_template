@@ -62,9 +62,9 @@ RUN apt-get update && \
     apt-get clean
 
 # Google Test
-RUN echo "********************* Google Test *********************"
-RUN git clone https://github.com/google/googletest.git
-RUN mkdir -p googletest/build && \
+RUN echo "********************* Google Test *********************" && \
+    git clone https://github.com/google/googletest.git && \
+    mkdir -p googletest/build && \
     cd googletest/build && \
     cmake .. && \
     make && \
