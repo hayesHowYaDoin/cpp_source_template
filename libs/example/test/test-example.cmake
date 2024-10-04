@@ -12,8 +12,8 @@ target_include_directories(test-example
 
 target_link_libraries(test-example
     PUBLIC
-        GTest::GTest
-        GTest::Main
+        GTest::gtest
+        GTest::gtest_main
     PRIVATE 
         ${PROJECT_NAME}::example
 )

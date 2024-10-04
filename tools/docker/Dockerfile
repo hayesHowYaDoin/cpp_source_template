@@ -61,14 +61,5 @@ RUN apt-get update && \
     rm ninja-linux.zip && \
     apt-get clean
 
-# # Google Test
-# RUN echo "********************* Google Test *********************" && \
-#     git clone https://github.com/google/googletest.git && \
-#     mkdir -p googletest/build && \
-#     cd googletest/build && \
-#     cmake .. && \
-#     make && \
-#     make install
-
 # Uninstall alternate versions of GCC
 RUN apt-get remove -y gcc-12 g++-12
