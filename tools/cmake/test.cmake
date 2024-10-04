@@ -1,10 +1,16 @@
 message("${CMAKE_CURRENT_SOURCE_DIR}: Including GTest...")
 
-# Suppress GTest warnings
-cmake_policy(SET CMP0003 NEW)
-cmake_policy(SET CMP0012 NEW)
+include(CPM)
 
-find_package(GTest REQUIRED)
+CPMAddPackage(
+  NAME googletest
+  GITHUB_REPOSITORY google/googletest
+  GIT_TAG v1.15.2
+  VERSION 1.15.2
+  OPTIONS "INSTALL_GTEST OFF" "gtest_force_shared_crt"
+)
+
+include(GoogleTest)
 
 enable_testing()
-include(GoogleTest)
+find_package(GTest REQUIRED)
